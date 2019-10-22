@@ -1,0 +1,16 @@
+#! armcc -E
+
+LR_IROM1 0x1fff0000 0x00040000  {    ; load region size_region
+  RAM 0x1fff0000 0x00020000{  ; load address = execution address
+	  *.o (RESET, +First);
+	  *(InRoot$$Sections);
+	  .ANY (+RO);
+	  .ANY (+RW +ZI);
+  }
+
+  ARM_LIB_HEAP +0 EMPTY 0x8000 ; Heap region growing up
+  { }
+}
+
+	
+
