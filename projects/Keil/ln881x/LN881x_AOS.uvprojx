@@ -576,11 +576,6 @@
               <FilePath>..\..\..\board\ln8810evb\config\k_config.c</FilePath>
             </File>
             <File>
-              <FileName>partition_conf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\ln8810evb\config\partition_conf.c</FilePath>
-            </File>
-            <File>
               <FileName>board.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\board\ln8810evb\startup\board.c</FilePath>
@@ -630,6 +625,26 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\platform\mcu\ln881x\src\driver\hal\hal_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln881x\src\driver\hal\flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln881x\src\driver\hal\hal_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>qspi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln881x\src\driver\hal\qspi.c</FilePath>
+            </File>
+            <File>
+              <FileName>cache.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln881x\src\driver\hal\cache.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -641,9 +656,14 @@
               <FilePath>..\..\..\platform\mcu\ln881x\hal\hal.c</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
+              <FileName>hal_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln881x\hal\soc\uart.c</FilePath>
+              <FilePath>..\..\..\platform\mcu\ln881x\hal\hal_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln881x\hal\hal_uart.c</FilePath>
             </File>
           </Files>
         </Group>
