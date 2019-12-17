@@ -39,8 +39,6 @@ static void sys_init(void)
 
     soc_system_init();
 
-    //hal_init_post();
-
     board_driver_init();
     /*insert driver to enable irq for example: starting to run tick time.
      drivers to trigger irq is forbidden before aos_start, which will start core schedule.

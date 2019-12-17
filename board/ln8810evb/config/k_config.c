@@ -128,17 +128,14 @@ example:
 k_mm_region_t g_mm_region[1];
 int           g_region_num = 1;
 
-extern unsigned int Image$$ARM_LIB_HEAP$$ZI$$Base;
-extern unsigned int Image$$ARM_LIB_HEAP$$ZI$$Limit;
-void soc_sys_mem_init(void)
+extern unsigned int Image$$HEAP_SPACE$$ZI$$Base;
+extern unsigned int Image$$HEAP_SPACE$$ZI$$Limit;
+#define HEAP_START                      (&Image$$HEAP_SPACE$$ZI$$Base)
+#define HEAP_END                        (&Image$$HEAP_SPACE$$ZI$$Limit)
+void aos_heap_set()
 {
-#if 0
-    g_mm_region[0].start = (uint8_t *)&heap_start;   /*use &heap_start when defined in linkscript(*.ld/*.sct) */
-    g_mm_region[0].len   = heap_len;     /*use &heap_len when defined in linkscript(*.ld/*.sct) */
-#else
-    g_mm_region[0].start = (uint8_t *)&Image$$ARM_LIB_HEAP$$ZI$$Base;
-    g_mm_region[0].len   = (uint8_t *)&Image$$ARM_LIB_HEAP$$ZI$$Limit - (uint8_t *)&Image$$ARM_LIB_HEAP$$ZI$$Base;
-#endif
+    g_mm_region[0].start = (uint8_t *)HEAP_START;   //use &heap_start when defined in linkscript(*.ld/*.sct)
+    g_mm_region[0].len   = (uint8_t *)HEAP_END - (uint8_t *)HEAP_START;     //use &heap_len when defined in linkscript(*.ld/*.sct)
 }
 #elif defined (__ICCARM__)  /* IAR */
 

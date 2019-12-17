@@ -586,9 +586,14 @@
               <FilePath>..\..\..\board\ln8810evb\startup\startup.c</FilePath>
             </File>
             <File>
-              <FileName>startup_ln881x_keil.S</FileName>
+              <FileName>startup_keil.S</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\board\ln8810evb\startup\startup_ln881x_keil.S</FilePath>
+              <FilePath>..\..\..\board\ln8810evb\startup\startup_keil.S</FilePath>
+            </File>
+            <File>
+              <FileName>partition_conf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\ln8810evb\config\partition_conf.c</FilePath>
             </File>
           </Files>
         </Group>

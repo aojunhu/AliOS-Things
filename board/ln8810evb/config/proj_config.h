@@ -56,7 +56,7 @@
 /*
  * Module enable/disable control
  */
-#define FLASH_XIP                             ENABLE//DISABLE
+#define FLASH_XIP                             DISABLE//DISABLE
 #define ENABLE_FREERTOS                       ENABLE
 #define AT_INTERFACE                          ENABLE
 #define APP_EVENT                             ENABLE
