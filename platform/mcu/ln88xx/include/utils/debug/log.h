@@ -22,7 +22,9 @@
 #define LOG_LVL_TRACE               (LOG_LVL_EMERG + 5)
 #define LOG_LVL_CTRL                LOG_LVL_INFO     //By modifying this value, control the different levels of log printing
 
+#if !(defined(__CONFIG_OS_KERNEL) && (__CONFIG_OS_KERNEL == RTOS_ALIOS))
 void log_init(void);
+#endif
 void hexdump(uint8_t level, uint8_t *info, void *buff, uint32_t count);
 int log_stdio_write(char *buf, size_t size);
 

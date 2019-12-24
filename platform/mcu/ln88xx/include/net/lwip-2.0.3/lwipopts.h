@@ -143,8 +143,8 @@ a lot of data that needs to be copied, this should be set high. */
 
 
 /* ----------  Hook options ----------*/
-#define LWIP_HOOK_FILENAME                  "arch/lwip_hooks.h"
-#define LWIP_HOOK_IP4_ROUTE_SRC(dest, src)  hook_ip4_route_src(dest,src)//Routing based on the source address!!!
+//#define LWIP_HOOK_FILENAME                  "arch/lwip_hooks.h"
+//#define LWIP_HOOK_IP4_ROUTE_SRC(dest, src)  hook_ip4_route_src(dest,src)//Routing based on the source address!!!
 
 
 

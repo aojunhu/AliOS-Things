@@ -32,7 +32,9 @@
 #ifndef __ARCH_CC_H__
 #define __ARCH_CC_H__
 
-
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
 //#include "sys/defs.h"
 
 /* basic headers */
@@ -82,10 +84,12 @@
 
 
 /* Use private struct timeval */
-//#define LWIP_TIMEVAL_PRIVATE    0
-//#if (!LWIP_TIMEVAL_PRIVATE)
-//#include <sys/time.h>
-//#endif
+#define LWIP_TIMEVAL_PRIVATE    0
+#if (!LWIP_TIMEVAL_PRIVATE)
+#include <sys/time.h>
+#endif
+
+#define LWIP_MAILBOX_QUEUE  1
 
 #if (defined(__GNUC__))
     /* GNU Compiler */

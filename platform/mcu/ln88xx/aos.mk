@@ -12,7 +12,7 @@ $(NAME)_COMPONENTS += arch_armv7m rhino
 $(NAME)_INCLUDES += ./
 
 GLOBAL_INCLUDES += include \
-                   include/cpu/compiler/ \
+                   include/net/lwip-2.0.3/ \
                    include/cpu/ARM_CM4F/CMSIS_5.3.0/ \
                    include/cpu/ARM_CM4F/ln88xx/ \
                    include/kernel/
@@ -20,10 +20,13 @@ GLOBAL_INCLUDES += include \
 $(NAME)_SOURCES += hal/hal.c \
                    hal/hal_uart.c \
                    hal/hal_flash.c \
+                   hal/hal_sd.c \
                    src/cpu/ARM_CM4F/ln88xx/system_ln88xx.c \
                    src/utils/debug/log.c \
                    src/utils/debug/art_assert.c \
-                   src/utils/wrap_stdio.c
+                   src/utils/wrap_stdio.c \
+                   src/net/lwip/memcpy.c \
+                   src/net/lwip/checksum.c
 
 #include $(SOURCE_ROOT)/platform/mcu/ln881x/sdk_files.mk
 
@@ -32,10 +35,17 @@ GLOBAL_INCLUDES += include/driver_ln881x \
                    src/driver_ln881x/ll/include
 
 $(NAME)_SOURCES += src/driver_ln881x/ll/ll_syscon.c \
+                   src/driver_ln881x/ll/ll_cache.c \
+                   src/driver_ln881x/ll/ll_dma.c \
+                   src/driver_ln881x/ll/ll_qspi.c \
                    src/driver_ln881x/ll/ll_uart.c \
                    src/driver_ln881x/hal/hal_syscon.c \
                    src/driver_ln881x/hal/hal_common.c \
-                   src/driver_ln881x/hal/hal_uart.c
+                   src/driver_ln881x/hal/hal_uart.c \
+                   src/driver_ln881x/hal/flash.c \
+                   src/driver_ln881x/hal/hal_dma.c \
+                   src/driver_ln881x/hal/qspi.c \
+                   src/driver_ln881x/hal/cache.c
 GLOBAL_CFLAGS  += -DLN881x
 endif
 

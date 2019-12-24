@@ -53,7 +53,11 @@ static void sys_init(void)
     #endif
 }
 
+#if defined ( __GNUC__ )
+int __wrap_main(void)
+#else
 int main(void)
+#endif
 {
     /*irq initialized is approved here.But irq triggering is forbidden, which will enter CPU scheduling.
     Put them in sys_init which will be called after aos_start.

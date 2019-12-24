@@ -332,7 +332,7 @@
               <MiscControls></MiscControls>
               <Define>LN881x, ARM_MATH_CM4, WITH_LWIP</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\include;..\..\..\include\network;..\..\..\network\lwip\include;..\..\..\kernel\rhino\include;..\..\..\kernel\init\include;..\..\..\kernel\debug;..\..\..\kernel\debug\include;..\..\..\platform\arch\arm\armv7m\include;..\..\..\platform\arch\arm\armv7m\common\include;..\..\..\board\ln8810evb\config;..\..\..\utility\libc\compilers\armlibc;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\ln88xx;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\CMSIS_5.3.0;..\..\..\platform\mcu\ln88xx\include\cpu\compiler;..\..\..\platform\mcu\ln88xx\include;..\..\..\platform\mcu\ln88xx\include\net\lwip-2.0.3;..\..\..\platform\mcu\ln88xx\include\driver_ln881x;..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\include;..\..\..\platform\mcu\ln88xx\include\kernel;..\..\..\platform\mcu\ln88xx\include\kernel\AliOS_Adapter;..\..\..\platform\mcu\ln88xx\test\certificate_test\cutest</IncludePath>
+              <IncludePath>..\..\..\include;..\..\..\include\network;..\..\..\network\lwip\include;..\..\..\kernel\rhino\include;..\..\..\kernel\init\include;..\..\..\kernel\debug;..\..\..\kernel\debug\include;..\..\..\platform\arch\arm\armv7m\include;..\..\..\platform\arch\arm\armv7m\common\include;..\..\..\board\ln8810evb\config;..\..\..\utility\libc\compilers\armlibc;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\ln88xx;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\CMSIS_5.3.0;..\..\..\platform\mcu\ln88xx\include;..\..\..\platform\mcu\ln88xx\include\net\lwip-2.0.3;..\..\..\platform\mcu\ln88xx\include\driver_ln881x;..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\include;..\..\..\platform\mcu\ln88xx\include\kernel;..\..\..\platform\mcu\ln88xx\include\kernel\AliOS_Adapter;..\..\..\platform\mcu\ln88xx\test\certificate_test\cutest</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -719,6 +719,11 @@
               <FileName>hal_uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_sd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_sd.c</FilePath>
             </File>
           </Files>
         </Group>

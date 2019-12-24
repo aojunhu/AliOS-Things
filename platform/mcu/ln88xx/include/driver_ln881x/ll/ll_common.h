@@ -1,12 +1,8 @@
 #ifndef __LL_H__
 #define __LL_H__
 
-#ifndef __arm__
-#error "File only included with ARMCC!"
-#endif // __arm__
-
 #include <stdint.h>
-#include "cmsis_armcc.h"
+#include "ln88xx.h"
 
 /** @brief Enable interrupts globally in the system.
  * This macro must be used when the initialization phase is over and the interrupts

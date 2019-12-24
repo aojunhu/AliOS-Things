@@ -1,39 +1,8 @@
-/*
- * Copyright (C) 2017 XRADIO TECHNOLOGY CO., LTD. All rights reserved.
- *
- *  Redistribution and use in source and binary forms, with or without
- *  modification, are permitted provided that the following conditions
- *  are met:
- *    1. Redistributions of source code must retain the above copyright
- *       notice, this list of conditions and the following disclaimer.
- *    2. Redistributions in binary form must reproduce the above copyright
- *       notice, this list of conditions and the following disclaimer in the
- *       documentation and/or other materials provided with the
- *       distribution.
- *    3. Neither the name of XRADIO TECHNOLOGY CO., LTD. nor the names of
- *       its contributors may be used to endorse or promote products derived
- *       from this software without specific prior written permission.
- *
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- *  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- *  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- *  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
- *  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- *  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- *  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- *  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- *  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 
   .syntax unified
-#ifdef __CONFIG_CPU_CM4F
+  .arch   armv7e-m
   .cpu cortex-m4
   .fpu softvfp
-#else
-  .cpu cortex-m3
-#endif
   .thumb
 
 .global g_pfnVectors
@@ -103,7 +72,6 @@ LoopForever:
 
     .section .cpu_text,"ax",%progbits
 Default_Handler:
-#ifndef __CONFIG_BOOTLOADER
   CPSID F
   TST LR, #0x04
   ITE EQ
@@ -113,7 +81,7 @@ Default_Handler:
   MRS R1, MSP
   MRS R2, PSP
   BL exception_entry
-#endif
+
 Infinite_Loop:
   b Infinite_Loop
   .size Default_Handler, .-Default_Handler
@@ -150,70 +118,40 @@ g_pfnVectors:
   .word SysTick_Handler
 
     /* External Interrupts */
-  .word		DMA_IRQHandler				// 16
-#ifndef __CONFIG_BOOTLOADER
-  .word		GPIOA_IRQHandler
-  .word		SDC_IRQHandler
-  .word		MBOX_A_IRQHandler
-  .word		UART0_IRQHandler			// 20
-  .word		UART1_IRQHandler
+  .word		WDT_IRQHandler				// 16
+  .word		EXTERNAL_IRQHandler
+  .word		RTC_IRQHandler
+  .word		SLEEP_IRQHandler
+  .word		MAC_IRQHandler			// 20
+  .word		DMA_IRQHandler
+  .word		QSPI_IRQHandler
+  .word		SDIO_FUN1_IRQHandler
+  .word		SDIO_FUN2_IRQHandler
+  .word		SDIO_FUN3_IRQHandler
+  .word		SDIO_FUN4_IRQHandler
+  .word		SDIO_FUN5_IRQHandler
+  .word		SDIO_FUN6_IRQHandler
+  .word		SDIO_FUN7_IRQHandler
+  .word		SDIO_ASYNC_HOST_IRQHandler			// 30
+  .word		SDIO_M2S_IRQHandler
+  .word		CM4_INTR0_IRQHandler
+  .word		CM4_INTR1_IRQHandler
+  .word		CM4_INTR2_IRQHandler
+  .word		CM4_INTR3_IRQHandler
+  .word		CM4_INTR4_IRQHandler
+  .word		CM4_INTR5_IRQHandler
+  .word		ADC_IRQHandler
+  .word		TIMER_IRQHandler
+  .word		I2C0_IRQHandler			// 40
+  .word		I2C1_IRQHandler
   .word		SPI0_IRQHandler
+  .word		SPI2_IRQHandler
+  .word		UART0_IRQHandler
+  .word		UART1_IRQHandler
   .word		SPI1_IRQHandler
-  .word		TWI0_IRQHandler
-  .word		TWI1_IRQHandler
-  .word		WDG_IRQHandler
-  .word		TIMER0_IRQHandler
-  .word		TIMER1_IRQHandler
-  .word		RTC_SecAlarm_IRQHandler
-  .word		RTC_WDayAlarm_IRQHandler			// 30
-  .word		CSI_IRQHandler
+  .word		GPIO_IRQHandler
   .word		I2S_IRQHandler
-  .word		PWM_ECT_IRQHandler
-  .word		CE_IRQHandler
-  .word		GPADC_IRQHandler
-  .word		GPIOB_IRQHandler
-  .word		DMIC_IRQHandler
-  .word		IRRX_IRQHandler
-  .word		IRTX_IRQHandler
-  .word		MBOX_N_IRQHandler			// 40
-  .word		0
-  .word		0
-  .word		N_UART_IRQHandler
-#else
-  .word		0 //GPIOA_IRQHandler
-  .word		0 //SDC_IRQHandler
-  .word		0 //MBOX_A_IRQHandler
-  .word		UART0_IRQHandler		// 20
-  .word		UART1_IRQHandler
-  .word		SPI0_IRQHandler
-  .word		0 //SPI1_IRQHandler
-  .word		0 //TWI0_IRQHandler
-  .word		0 //TWI1_IRQHandler
-  .word		0 //WDG_IRQHandler
-  .word		0 //TIMER0_IRQHandler
-  .word		0 //TIMER1_IRQHandler
-  .word		0 //RTC_SecAlarm_IRQHandler
-  .word		0 //RTC_WDayAlarm_IRQHandler	// 30
-  .word		0 //CSI_IRQHandler
-  .word		0 //I2S_IRQHandler
-  .word		0 //PWM_ECT_IRQHandler
-  .word		0 //CE_IRQHandler
-  .word		0 //GPADC_IRQHandler
-  .word		0 //GPIOB_IRQHandler
-  .word		0 //DMIC_IRQHandler
-  .word		0 //IRRX_IRQHandler
-  .word		0 //IRTX_IRQHandler
-  .word		0 //MBOX_N_IRQHandler 		// 40
-  .word		0
-  .word		0
-  .word		0
-#endif
-  .word		0
-  .word		0
-  .word		0
-  .word		0
-  .word		0
-  .word		0
+  .word		PAOTD_IRQHandler
   .word		0							// 50
   .word		0
   .word		0
@@ -266,20 +204,89 @@ g_pfnVectors:
 //  .thumb_set SysTick_Handler,Default_Handler
 
 
+  .weak      WDT_IRQHandler
+  .thumb_set WDT_IRQHandler,Default_Handler
+
+  .weak      EXTERNAL_IRQHandler
+  .thumb_set EXTERNAL_IRQHandler,Default_Handler
+
+  .weak      RTC_IRQHandler
+  .thumb_set RTC_IRQHandler,Default_Handler
+
+  .weak      SLEEP_IRQHandler
+  .thumb_set SLEEP_IRQHandler,Default_Handler
+
+  .weak      MAC_IRQHandler
+  .thumb_set MAC_IRQHandler,Default_Handler
+
   .weak      DMA_IRQHandler
   .thumb_set DMA_IRQHandler,Default_Handler
 
-  .weak      GPIOA_IRQHandler
-  .thumb_set GPIOA_IRQHandler,Default_Handler
+  .weak      QSPI_IRQHandler
+  .thumb_set QSPI_IRQHandler,Default_Handler
 
-  .weak      SDC_IRQHandler
-  .thumb_set SDC_IRQHandler,Default_Handler
+  .weak      SDIO_FUN1_IRQHandler
+  .thumb_set SDIO_FUN1_IRQHandler,Default_Handler
 
-  .weak      MBOX_A_IRQHandler
-  .thumb_set MBOX_A_IRQHandler,Default_Handler
+  .weak      SDIO_FUN2_IRQHandler
+  .thumb_set SDIO_FUN2_IRQHandler,Default_Handler
 
-  .weak      MBOX_N_IRQHandler
-  .thumb_set MBOX_N_IRQHandler,Default_Handler
+  .weak      SDIO_FUN3_IRQHandler
+  .thumb_set SDIO_FUN3_IRQHandler,Default_Handler
+
+  .weak      SDIO_FUN4_IRQHandler
+  .thumb_set SDIO_FUN4_IRQHandler,Default_Handler
+
+  .weak      SDIO_FUN5_IRQHandler
+  .thumb_set SDIO_FUN5_IRQHandler,Default_Handler
+
+  .weak      SDIO_FUN6_IRQHandler
+  .thumb_set SDIO_FUN6_IRQHandler,Default_Handler
+
+  .weak      SDIO_FUN7_IRQHandler
+  .thumb_set SDIO_FUN7_IRQHandler,Default_Handler
+
+  .weak      SDIO_ASYNC_HOST_IRQHandler
+  .thumb_set SDIO_ASYNC_HOST_IRQHandler,Default_Handler
+
+  .weak      SDIO_M2S_IRQHandler
+  .thumb_set SDIO_M2S_IRQHandler,Default_Handler
+
+  .weak      CM4_INTR0_IRQHandler
+  .thumb_set CM4_INTR0_IRQHandler,Default_Handler
+
+  .weak      CM4_INTR1_IRQHandler
+  .thumb_set CM4_INTR1_IRQHandler,Default_Handler
+
+  .weak      CM4_INTR2_IRQHandler
+  .thumb_set CM4_INTR2_IRQHandler,Default_Handler
+
+  .weak      CM4_INTR3_IRQHandler
+  .thumb_set CM4_INTR3_IRQHandler,Default_Handler
+
+  .weak      CM4_INTR4_IRQHandler
+  .thumb_set CM4_INTR4_IRQHandler,Default_Handler
+
+  .weak      CM4_INTR5_IRQHandler
+  .thumb_set CM4_INTR5_IRQHandler,Default_Handler
+
+  .weak      ADC_IRQHandler
+  .thumb_set ADC_IRQHandler,Default_Handler
+
+  .weak      TIMER_IRQHandler
+  .thumb_set TIMER_IRQHandler,Default_Handler
+
+  .weak      I2C0_IRQHandler
+  .thumb_set I2C0_IRQHandler,Default_Handler
+
+  .weak      I2C1_IRQHandler
+  .thumb_set I2C1_IRQHandler,Default_Handler
+
+  .weak      SPI0_IRQHandler
+  .thumb_set SPI0_IRQHandler,Default_Handler
+
+  .weak      SPI2_IRQHandler
+  .thumb_set SPI2_IRQHandler,Default_Handler
 
   .weak      UART0_IRQHandler
   .thumb_set UART0_IRQHandler,Default_Handler
@@ -287,89 +294,19 @@ g_pfnVectors:
   .weak      UART1_IRQHandler
   .thumb_set UART1_IRQHandler,Default_Handler
 
-  .weak      SPI0_IRQHandler
-  .thumb_set SPI0_IRQHandler,Default_Handler
-
   .weak      SPI1_IRQHandler
   .thumb_set SPI1_IRQHandler,Default_Handler
 
-  .weak      TWI0_IRQHandler
-  .thumb_set TWI0_IRQHandler,Default_Handler
-
-  .weak      TWI1_IRQHandler
-  .thumb_set TWI1_IRQHandler,Default_Handler
-
-  .weak      WDG_IRQHandler
-  .thumb_set WDG_IRQHandler,Default_Handler
-
-  .weak      TIMER0_IRQHandler
-  .thumb_set TIMER0_IRQHandler,Default_Handler
-
-  .weak      TIMER1_IRQHandler
-  .thumb_set TIMER1_IRQHandler,Default_Handler
-
-  .weak      RTC_SecAlarm_IRQHandler
-  .thumb_set RTC_SecAlarm_IRQHandler,Default_Handler
-
-  .weak      RTC_WDayAlarm_IRQHandler
-  .thumb_set RTC_WDayAlarm_IRQHandler,Default_Handler
-
-  .weak      CSI_IRQHandler
-  .thumb_set CSI_IRQHandler,Default_Handler
+  .weak      GPIO_IRQHandler
+  .thumb_set GPIO_IRQHandler,Default_Handler
 
   .weak      I2S_IRQHandler
   .thumb_set I2S_IRQHandler,Default_Handler
 
-  .weak      PWM_ECT_IRQHandler
-  .thumb_set PWM_ECT_IRQHandler,Default_Handler
-
-  .weak      CE_IRQHandler
-  .thumb_set CE_IRQHandler,Default_Handler
-
-  .weak      GPADC_IRQHandler
-  .thumb_set GPADC_IRQHandler,Default_Handler
-
-  .weak      GPIOC_IRQHandler
-  .thumb_set GPIOC_IRQHandler,Default_Handler
-
-  .weak      DMIC_IRQHandler
-  .thumb_set DMIC_IRQHandler,Default_Handler
-
-  .weak      IRRX_IRQHandler
-  .thumb_set IRRX_IRQHandler,Default_Handler
-
-  .weak      IRTX_IRQHandler
-  .thumb_set IRTX_IRQHandler,Default_Handler
-
-  .weak      N_UART_IRQHandler
-  .thumb_set N_UART_IRQHandler,Default_Handler
-
-  .weak      N_SPI_IRQHandler
-  .thumb_set N_SPI_IRQHandler,Default_Handler
-
-  .weak      N_WDT_IRQHandler
-  .thumb_set N_WDT_IRQHandler,Default_Handler
-
-  .weak      N_TIMER0_IRQHandler
-  .thumb_set N_TIMER0_IRQHandler,Default_Handler
-
-  .weak      N_TIMER1_IRQHandler
-  .thumb_set N_TIMER1_IRQHandler,Default_Handler
-
-  .weak      N_SDC_IRQHandler
-  .thumb_set N_SDC_IRQHandler,Default_Handler
-
-  .weak      N_WIFIC_IRQHandler
-  .thumb_set N_WIFIC_IRQHandler,Default_Handler
-
-  .weak      WKUP_TIMER0_IRQHandler
-  .thumb_set WKUP_TIMER0_IRQHandler,Default_Handler
-
-  .weak      WKUP_TIMER1_IRQHandler
-  .thumb_set WKUP_TIMER1_IRQHandler,Default_Handler
+  .weak      PAOTD_IRQHandler
+  .thumb_set PAOTD_IRQHandler,Default_Handler
 
   /*------------------ void __cpu_sleep(int nouse) ------------------------*/
-#ifndef __CONFIG_BOOTLOADER
 
   .thumb_func
   .section .cpu_text
@@ -592,4 +529,3 @@ resume:
   .fnend
   .size   __cpu_suspend, .-__cpu_suspend
 
-#endif

@@ -12,12 +12,8 @@
   Externals
  *----------------------------------------------------------------------------*/
 #if defined (__VTOR_PRESENT) && (__VTOR_PRESENT == 1U)
-  #if defined ( __GNUC__ )
-      extern __vector_table_t vector_table;
-  #else
-      extern uint32_t __Vectors;
-      #define vector_table	__Vectors
-  #endif
+extern uint32_t __Vectors[];
+#define vector_table	__Vectors
 #endif
 
 /*----------------------------------------------------------------------------

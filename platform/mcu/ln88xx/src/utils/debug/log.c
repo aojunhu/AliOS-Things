@@ -1,5 +1,5 @@
-#include "ln88xx.h"
 #include "proj_config.h"
+#include "ln88xx.h"
 #include "utils/debug/log.h"
 #if !(defined(__CONFIG_OS_KERNEL) && (__CONFIG_OS_KERNEL == RTOS_ALIOS))
 #include "serial/serial.h"
@@ -64,6 +64,7 @@ void hexdump(uint8_t level, uint8_t *info, void *buff, uint32_t count)
     LOG(level, "\r\n");
 }
 
+#if !(defined(__CONFIG_OS_KERNEL) && (__CONFIG_OS_KERNEL == RTOS_ALIOS))
 void log_init(void)
 {
 #if (EXEC_ENV == RUN_ON_SIMU)
@@ -71,12 +72,11 @@ void log_init(void)
     #if (PRINT_TO_RTT == ENABLE)
         SEGGER_RTT_Init();
     #else
-		#if !(defined(__CONFIG_OS_KERNEL) && (__CONFIG_OS_KERNEL == RTOS_ALIOS))
         serial_init(&m_LogSerial, SER_PORT_UART0, LOG_PORT_BAUDRATE, NULL);//2000000 SER_PORT_UART1
-		#endif
     #endif
 #endif
 }
+#endif
 
 
 

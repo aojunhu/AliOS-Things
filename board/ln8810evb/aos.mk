@@ -24,7 +24,7 @@ $(NAME)_SOURCES += config/k_config.c \
                    startup/board.c   \
                    startup/startup.c
 
-$(NAME)_SOURCES += startup/startup_gcc.s
+$(NAME)_SOURCES += startup/startup_gcc.c
 
 $(NAME)_ASMFLAGS += -c -x assembler-with-cpp
 
