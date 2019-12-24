@@ -9,7 +9,7 @@
 #include "board.h"
 #include "aos/hal/uart.h"
 #include "ln88xx.h"
-#include "driver/hal/hal_syscon.h"
+#include "hal/hal_syscon.h"
 #include "aos/hal/flash.h"
 
 extern void aos_heap_set(void);

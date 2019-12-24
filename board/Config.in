@@ -776,6 +776,15 @@ if AOS_BOARD_XR871EVB
     source "platform/arch/arm/armv7m/Config.in"
 endif
 
+source "board/ln8810evb/Config.in"
+if AOS_BOARD_LN8810EVB
+    config AOS_BUILD_BOARD
+        default "ln8810evb"
+
+    source "platform/mcu/ln88xx/Config.in"
+    source "platform/arch/arm/armv7m/Config.in"
+endif
+
 endchoice
 
 endmenu

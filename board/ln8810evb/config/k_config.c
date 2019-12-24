@@ -154,8 +154,11 @@ k_mm_region_t g_mm_region[1];
 int           g_region_num = 1;
 void aos_heap_set()
 {
-    g_mm_region[0].start = heap_start;    /* heap defined in assembler file*/
-    g_mm_region[0].len   = heap_len;
+	extern void *heap_start;
+    extern void *heap_len;
+    g_mm_region[0].start = &heap_start;    /* heap defined in assembler file*/
+    g_mm_region[0].len   = &heap_len;
+	g_region_num = 1;
 }
 #endif
 #endif

@@ -1,0 +1,10 @@
+config AOS_MCU_LN881X
+    bool
+    select AOS_ARCH_ARMV7M
+    select AOS_COMP_RHINO
+    help
+      driver & sdk for platform/mcu ln881x
+
+if AOS_MCU_LN881X
+# Configurations for mcu ln881x
+endif

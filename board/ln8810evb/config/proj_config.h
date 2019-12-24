@@ -10,7 +10,7 @@
 
 #include "common_def_ln88xx.h"
 
-#define __CONFIG_OS_KERNEL                    RTOS_FREERTOS
+#define __CONFIG_OS_KERNEL                    RTOS_ALIOS
 #define EXEC_ENV                              RUN_ON_CHIP//RUN_ON_FPGA RUN_ON_SIMU RUN_ON_CHIP
 
 /*
@@ -49,9 +49,6 @@
 #error "AHBUS_CLOCK % APBUS0_CLOCK != 0 or AHBUS_CLOCK % APBUS1_CLOCK != 0"
 #endif
 
-#if ((defined (LN882x)) && (EXEC_ENV != RUN_ON_FPGA))
-#error "Now,ln882x wasn't born yet!"
-#endif
 
 /*
  * Module enable/disable control

@@ -76,6 +76,9 @@
 #ifndef RHINO_CONFIG_TICKS_PER_SECOND
 #define RHINO_CONFIG_TICKS_PER_SECOND        100
 #endif
+#ifndef RHINO_CONFIG_NEXT_INTRPT_TICKS
+#define RHINO_CONFIG_NEXT_INTRPT_TICKS        100
+#endif
 
 /*must reserve enough stack size for timer cb will consume*/
 #ifndef RHINO_CONFIG_TIMER_TASK_STACK_SIZE
