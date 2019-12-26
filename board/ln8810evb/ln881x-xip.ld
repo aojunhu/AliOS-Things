@@ -1,17 +1,17 @@
 /*
 *****************************************************************************
 **
-**  File        : XR871.ld
+**  File        : ln881x-xip.ld
 **
-**  Abstract    : Linker script for XR871 Device with
-**                2048KByte FLASH, 448KByte RAM
+**  Abstract    : Linker script for LN881x Device with
+**                2048KByte FLASH, 232KByte RAM
 **
 **                Set heap size, stack size and stack location according
 **                to application requirements.
 **
 **                Set memory bank area and size if external memory is used.
 **
-**  Target      : Xradio Technology XR871
+**  Target      : Lightningsemi LN8810
 **
 **  Environment : Gcc
 **
@@ -25,8 +25,8 @@
 /* Specify the memory areas */
 MEMORY
 {
-  RAM (rwx)  : ORIGIN = 0x00010000, LENGTH = 448K
-  FLASH (rx) : ORIGIN = 0x10000000, LENGTH = 768K
+  RAM (rwx)  : ORIGIN = 0x1FFF0000, LENGTH = 232K
+  FLASH (rx) : ORIGIN = 0x10000000, LENGTH = 900K
 }
 
 __RAM_BASE = ORIGIN(RAM);
@@ -119,12 +119,12 @@ SECTIONS
     .text :
     {
         __text_start__ = .;
-        KEEP(*(.isr_vector))
+        KEEP(*(.__Vectors))
         KEEP(*(.text.Reset_Handler))
-        KEEP(*(.cpu_text))
+        /* KEEP(*(.cpu_text)) */
         *(.text*)
-        KEEP(*(.init))
-        KEEP(*(.fini))
+        /* KEEP(*(.init)) */
+        /* KEEP(*(.fini)) */
 
         /* .ctors */
         *crtbegin.o(.ctors)

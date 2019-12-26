@@ -10,7 +10,7 @@
 #ifdef BOOTLOADER
 #define STDIO_UART_BUADRATE 115200
 #else
-#define STDIO_UART_BUADRATE 115200
+#define STDIO_UART_BUADRATE 2000000
 #endif
 
 typedef enum {

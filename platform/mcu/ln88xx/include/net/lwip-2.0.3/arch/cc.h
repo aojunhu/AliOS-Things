@@ -35,6 +35,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdlib.h>
 //#include "sys/defs.h"
 
 /* basic headers */
@@ -136,7 +137,8 @@
   #include "utils/debug/log.h"
   #define __printf(format, ...)     log_printf(format, ##__VA_ARGS__)
 #elif (__CONFIG_OS_KERNEL == RTOS_ALIOS)
-  #define __printf     printf
+  #include <stdio.h>
+  #define __printf(format, ...)     printf(format, ##__VA_ARGS__)
 #else
   //TODO for other OS
   #define __printf

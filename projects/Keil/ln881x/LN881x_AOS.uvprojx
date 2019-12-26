@@ -79,9 +79,9 @@
             <nStopB2X>0</nStopB2X>
           </BeforeMake>
           <AfterMake>
-            <RunUserProg1>0</RunUserProg1>
+            <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name></UserProg1Name>
+            <UserProg1Name>python ..\..\..\platform\mcu\ln88xx\tools\user_cmd\after_build_soc.py chip_family=LN881x cmd=flashimage project=LN881x_AOS output=flashimage.bin release=1 crp_enable=0 app_version=10 hw_version=0</UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
@@ -137,7 +137,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2></Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3>"..\..\..\platform\mcu\ln88xx\tools\JFlash\JFlash.exe" (-openprj..\..\..\platform\mcu\ln88xx\tools\JFlash\LN881x.jflash -open.\flashimage.bin,0x0  -programverify)</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -322,17 +322,17 @@
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
-            <uC99>0</uC99>
+            <uC99>1</uC99>
             <useXO>0</useXO>
             <v6Lang>1</v6Lang>
             <v6LangP>1</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
             <VariousControls>
-              <MiscControls></MiscControls>
-              <Define>LN881x, ARM_MATH_CM4, WITH_LWIP</Define>
+              <MiscControls>-DMCU_FAMILY='\"mcu_ln88xx'\" -DSYSINFO_PRODUCT_MODEL='\"ALI_AOS_LN881X'\" -DSYSINFO_DEVICE_NAME='\"LN881X'\"</MiscControls>
+              <Define>LN881x, ARM_MATH_CM4, BUILD_BIN, AOS_NO_WIFI, STDIO_UART=0, OSAL_RHINO, AOS_HAL,  AOS_COMP_RHINO, AOS_COMP_DEBUG, AOS_LOOP, WITH_LWIP, CONFIG_NET_LWIP, NET_WITH_WIFI, AOS_NETMGR, AOS_COMP_ULOG, __BSD_VISIBLE, AOS_COMP_VFS, AOS_COMP_KV</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\include;..\..\..\include\network;..\..\..\network\lwip\include;..\..\..\kernel\rhino\include;..\..\..\kernel\init\include;..\..\..\kernel\debug;..\..\..\kernel\debug\include;..\..\..\platform\arch\arm\armv7m\include;..\..\..\platform\arch\arm\armv7m\common\include;..\..\..\board\ln8810evb\config;..\..\..\utility\libc\compilers\armlibc;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\ln88xx;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\CMSIS_5.3.0;..\..\..\platform\mcu\ln88xx\include;..\..\..\platform\mcu\ln88xx\include\net\lwip-2.0.3;..\..\..\platform\mcu\ln88xx\include\driver_ln881x;..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\include;..\..\..\platform\mcu\ln88xx\include\kernel;..\..\..\platform\mcu\ln88xx\include\kernel\AliOS_Adapter;..\..\..\platform\mcu\ln88xx\test\certificate_test\cutest</IncludePath>
+              <IncludePath>..\..\..\include;..\..\..\kernel\init\include;..\..\..\kernel\debug;..\..\..\kernel\debug\include;..\..\..\kernel\rhino\include;..\..\..\platform\arch\arm\armv7m\include;..\..\..\platform\arch\arm\armv7m\common\include;..\..\..\board\ln8810evb\config;..\..\..\utility\libc\compilers\armlibc;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\ln88xx;..\..\..\platform\mcu\ln88xx\include\cpu\ARM_CM4F\CMSIS_5.3.0;..\..\..\platform\mcu\ln88xx\include;..\..\..\platform\mcu\ln88xx\include\net\lwip-2.0.3;..\..\..\platform\mcu\ln88xx\include\driver_ln881x;..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\include;..\..\..\platform\mcu\ln88xx\include\kernel;..\..\..\platform\mcu\ln88xx\include\kernel\AliOS_Adapter;..\..\..\platform\mcu\ln88xx\test\certificate_test\cutest;..\..\..\network\lwip\include;..\..\..\include\network;..\..\..\include\network\bluetooth\breeze\api;..\..\..\include\network\bluetooth\breeze\core\include;..\..\..\include\network\bluetooth\bt_host\bt_common\include;..\..\..\include\network\bluetooth\bt_host\bt_common\port\include;..\..\..\include\network\bluetooth\bt_host\bt_common\tinycrypt\include;..\..\..\include\network\bluetooth\bt_host\include;..\..\..\include\network\bluetooth\bt_host\include\drivers;..\..\..\include\network\bluetooth\bt_host\profile;..\..\..\include\network\bluetooth\bt_mesh\inc;..\..\..\include\network\bluetooth\tmall_model;..\..\..\include\network\coap;..\..\..\include\network\http;..\..\..\include\network\lwm2m;..\..\..\include\network\umesh;..\..\..\include\network\nal\athost;..\..\..\include\network\nal\atparser;..\..\..\include\network\nal\sal;..\..\..\include\network\lwip;..\..\..\include\network\netmgr;..\..\..\include\network\yloop;..\..\..\kernel\cli\include;..\..\..\network\yloop\include;..\..\..\network\yloop\hal;..\..\..\3rdparty\experimental\fs\fatfs\include;..\..\..\3rdparty\experimental\fs\fatfs\ff\include;..\..\..\kernel\fs\vfs\include;..\..\..\middleware\uagent\ulog\include;..\..\..\kernel\fs\kv\include;..\..\..\kernel\lib\rbtree\include;..\..\..\platform\mcu\ln88xx\include\libc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -362,7 +362,7 @@
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0x00000000</DataAddressRange>
             <pXoBase></pXoBase>
-            <ScatterFile>..\..\..\board\ln8810evb\minimal_XIR_ln881x.sct</ScatterFile>
+            <ScatterFile>..\..\..\board\ln8810evb\ln881x.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -373,7 +373,47 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>kernel</GroupName>
+          <GroupName>helloworld</GroupName>
+          <Files>
+            <File>
+              <FileName>helloworld.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\app\example\helloworld\helloworld.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>board_ln8810evb</GroupName>
+          <Files>
+            <File>
+              <FileName>k_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\ln8810evb\config\k_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>board.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\ln8810evb\startup\board.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\ln8810evb\startup\startup.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_keil.S</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\..\board\ln8810evb\startup\startup_keil.S</FilePath>
+            </File>
+            <File>
+              <FileName>partition_conf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\board\ln8810evb\config\partition_conf.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>rhino</GroupName>
           <Files>
             <File>
               <FileName>k_buf_queue.c</FileName>
@@ -495,45 +535,40 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\kernel\rhino\k_workqueue.c</FilePath>
             </File>
-            <File>
-              <FileName>debug_panic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\kernel\debug\debug_panic.c</FilePath>
-            </File>
-            <File>
-              <FileName>debug_overview.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\kernel\debug\debug_overview.c</FilePath>
-            </File>
-            <File>
-              <FileName>debug_infoget.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\kernel\debug\debug_infoget.c</FilePath>
-            </File>
-            <File>
-              <FileName>aos_init.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\kernel\init\aos_init.c</FilePath>
-            </File>
-            <File>
-              <FileName>debug_cpuusage.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\kernel\debug\debug_cpuusage.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>osal</GroupName>
+          <GroupName>osal_aos</GroupName>
           <Files>
+            <File>
+              <FileName>cli.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\osal\aos\cli.c</FilePath>
+            </File>
+            <File>
+              <FileName>common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\osal\aos\common.c</FilePath>
+            </File>
+            <File>
+              <FileName>kv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\osal\aos\kv.c</FilePath>
+            </File>
             <File>
               <FileName>rhino.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\osal\aos\rhino.c</FilePath>
             </File>
+            <File>
+              <FileName>vfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\osal\aos\vfs.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>arch</GroupName>
+          <GroupName>arch_armv7m</GroupName>
           <Files>
             <File>
               <FileName>port_s.S</FileName>
@@ -563,47 +598,67 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>board</GroupName>
-          <Files>
-            <File>
-              <FileName>k_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\ln8810evb\config\k_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\ln8810evb\startup\board.c</FilePath>
-            </File>
-            <File>
-              <FileName>startup.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\ln8810evb\startup\startup.c</FilePath>
-            </File>
-            <File>
-              <FileName>startup_keil.S</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\..\..\board\ln8810evb\startup\startup_keil.S</FilePath>
-            </File>
-            <File>
-              <FileName>partition_conf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\board\ln8810evb\config\partition_conf.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>mcu_core</GroupName>
+          <GroupName>mcu_ln88xx</GroupName>
           <Files>
             <File>
               <FileName>system_ln88xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\platform\mcu\ln88xx\src\cpu\ARM_CM4F\ln88xx\system_ln88xx.c</FilePath>
             </File>
+            <File>
+              <FileName>art_assert.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\utils\debug\art_assert.c</FilePath>
+            </File>
+            <File>
+              <FileName>log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\utils\debug\log.c</FilePath>
+            </File>
+            <File>
+              <FileName>wrap_stdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\utils\wrap_stdio.c</FilePath>
+            </File>
+            <File>
+              <FileName>checksum.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\net\lwip\checksum.c</FilePath>
+            </File>
+            <File>
+              <FileName>memcpy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\net\lwip\memcpy.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>mcu_driver_hal</GroupName>
+          <GroupName>mcu_ln88xx_aos_hal</GroupName>
+          <Files>
+            <File>
+              <FileName>hal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_sd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_sd.c</FilePath>
+            </File>
+            <File>
+              <FileName>hal_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_uart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>mcu_ln88xx_drv_hal</GroupName>
           <Files>
             <File>
               <FileName>hal_syscon.c</FileName>
@@ -611,9 +666,9 @@
               <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\hal_syscon.c</FilePath>
             </File>
             <File>
-              <FileName>hal_common.c</FileName>
+              <FileName>qspi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\hal_common.c</FilePath>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\qspi.c</FilePath>
             </File>
             <File>
               <FileName>hal_uart.c</FileName>
@@ -621,19 +676,19 @@
               <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\hal_uart.c</FilePath>
             </File>
             <File>
-              <FileName>flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\flash.c</FilePath>
-            </File>
-            <File>
               <FileName>hal_dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\hal_dma.c</FilePath>
             </File>
             <File>
-              <FileName>qspi.c</FileName>
+              <FileName>hal_common.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\qspi.c</FilePath>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\hal_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\flash.c</FilePath>
             </File>
             <File>
               <FileName>cache.c</FileName>
@@ -643,13 +698,8 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>mcu_driver_ll</GroupName>
+          <GroupName>mcu_ln88xx_drv_ll</GroupName>
           <Files>
-            <File>
-              <FileName>ll_syscon.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\ll_syscon.c</FilePath>
-            </File>
             <File>
               <FileName>ll_cache.c</FileName>
               <FileType>1</FileType>
@@ -670,10 +720,15 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\ll_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>ll_syscon.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\ll_syscon.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>mcu_AliOS_Adapter</GroupName>
+          <GroupName>mcu_ln88xx_aos_adapter</GroupName>
           <Files>
             <File>
               <FileName>alios_mutex.c</FileName>
@@ -703,77 +758,519 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>mcu_driver_aos</GroupName>
-          <Files>
-            <File>
-              <FileName>hal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_flash.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_uart.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>hal_sd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_sd.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>mcu_utils</GroupName>
-          <Files>
-            <File>
-              <FileName>wrap_stdio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\src\utils\wrap_stdio.c</FilePath>
-            </File>
-            <File>
-              <FileName>art_assert.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\src\utils\debug\art_assert.c</FilePath>
-            </File>
-            <File>
-              <FileName>log.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\src\utils\debug\log.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>app</GroupName>
-          <Files>
-            <File>
-              <FileName>helloworld.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\app\example\helloworld\helloworld.c</FilePath>
-            </File>
-            <File>
-              <FileName>rhino_test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\test\certificate_test\rhino_test.c</FilePath>
-            </File>
-            <File>
-              <FileName>cut.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\test\certificate_test\cutest\cut.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>lib</GroupName>
+          <GroupName>libc</GroupName>
           <Files>
             <File>
               <FileName>armcc_libc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\utility\libc\compilers\armlibc\armcc_libc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>kernel_init</GroupName>
+          <Files>
+            <File>
+              <FileName>aos_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\init\aos_init.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>netmgr</GroupName>
+          <Files>
+            <File>
+              <FileName>wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\netmgr\hal\wifi.c</FilePath>
+            </File>
+            <File>
+              <FileName>netmgr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\netmgr\src\netmgr.c</FilePath>
+            </File>
+            <File>
+              <FileName>netmgr_wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\netmgr\src\netmgr_wifi.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>lwip</GroupName>
+          <Files>
+            <File>
+              <FileName>api_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\api_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>api_msg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\api_msg.c</FilePath>
+            </File>
+            <File>
+              <FileName>err.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\err.c</FilePath>
+            </File>
+            <File>
+              <FileName>netbuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\netbuf.c</FilePath>
+            </File>
+            <File>
+              <FileName>netdb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\netdb.c</FilePath>
+            </File>
+            <File>
+              <FileName>netifapi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\netifapi.c</FilePath>
+            </File>
+            <File>
+              <FileName>sockets.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\sockets.c</FilePath>
+            </File>
+            <File>
+              <FileName>tcpip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\api\tcpip.c</FilePath>
+            </File>
+            <File>
+              <FileName>def.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\def.c</FilePath>
+            </File>
+            <File>
+              <FileName>dns.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\dns.c</FilePath>
+            </File>
+            <File>
+              <FileName>inet_chksum.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\inet_chksum.c</FilePath>
+            </File>
+            <File>
+              <FileName>init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\init.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ip.c</FilePath>
+            </File>
+            <File>
+              <FileName>mem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\mem.c</FilePath>
+            </File>
+            <File>
+              <FileName>memp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\memp.c</FilePath>
+            </File>
+            <File>
+              <FileName>netif.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\netif.c</FilePath>
+            </File>
+            <File>
+              <FileName>pbuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\pbuf.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkt_print.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\pkt_print.c</FilePath>
+            </File>
+            <File>
+              <FileName>raw.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\raw.c</FilePath>
+            </File>
+            <File>
+              <FileName>stats.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\stats.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>tcp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\tcp.c</FilePath>
+            </File>
+            <File>
+              <FileName>tcp_in.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\tcp_in.c</FilePath>
+            </File>
+            <File>
+              <FileName>tcp_out.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\tcp_out.c</FilePath>
+            </File>
+            <File>
+              <FileName>timeouts.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\timeouts.c</FilePath>
+            </File>
+            <File>
+              <FileName>udp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\udp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ethernet.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\netif\ethernet.c</FilePath>
+            </File>
+            <File>
+              <FileName>slipif.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\netif\slipif.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>2</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>sys_arch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\port\sys_arch.c</FilePath>
+            </File>
+            <File>
+              <FileName>autoip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\autoip.c</FilePath>
+            </File>
+            <File>
+              <FileName>dhcp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\dhcp.c</FilePath>
+            </File>
+            <File>
+              <FileName>etharp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\etharp.c</FilePath>
+            </File>
+            <File>
+              <FileName>icmp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\icmp.c</FilePath>
+            </File>
+            <File>
+              <FileName>igmp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\igmp.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\ip4.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip4_addr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\ip4_addr.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip4_frag.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv4\ip4_frag.c</FilePath>
+            </File>
+            <File>
+              <FileName>dhcp6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\dhcp6.c</FilePath>
+            </File>
+            <File>
+              <FileName>ethip6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\ethip6.c</FilePath>
+            </File>
+            <File>
+              <FileName>icmp6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\icmp6.c</FilePath>
+            </File>
+            <File>
+              <FileName>inet6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\inet6.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\ip6.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip6_addr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\ip6_addr.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip6_frag.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\ip6_frag.c</FilePath>
+            </File>
+            <File>
+              <FileName>mld6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\mld6.c</FilePath>
+            </File>
+            <File>
+              <FileName>nd6.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\lwip\core\ipv6\nd6.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>cli</GroupName>
+          <Files>
+            <File>
+              <FileName>cli.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\cli\cli.c</FilePath>
+            </File>
+            <File>
+              <FileName>cli_adapt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\cli\cli_adapt.c</FilePath>
+            </File>
+            <File>
+              <FileName>cli_cpuusage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\cli\cli_cpuusage.c</FilePath>
+            </File>
+            <File>
+              <FileName>cli_default_command.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\cli\cli_default_command.c</FilePath>
+            </File>
+            <File>
+              <FileName>cli_dumpsys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\cli\cli_dumpsys.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>yloop</GroupName>
+          <Files>
+            <File>
+              <FileName>loop_hal_alios.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\yloop\hal\loop_hal_alios.c</FilePath>
+            </File>
+            <File>
+              <FileName>device.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\yloop\src\device.c</FilePath>
+            </File>
+            <File>
+              <FileName>local_event.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\yloop\src\local_event.c</FilePath>
+            </File>
+            <File>
+              <FileName>select.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\yloop\src\select.c</FilePath>
+            </File>
+            <File>
+              <FileName>workqueue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\yloop\src\workqueue.c</FilePath>
+            </File>
+            <File>
+              <FileName>yloop.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\network\yloop\src\yloop.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>fatfs</GroupName>
+          <Files>
+            <File>
+              <FileName>diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\3rdparty\experimental\fs\fatfs\diskio.c</FilePath>
+            </File>
+            <File>
+              <FileName>fatfs_vfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\3rdparty\experimental\fs\fatfs\fatfs_vfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>ff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\3rdparty\experimental\fs\fatfs\ff\ff.c</FilePath>
+            </File>
+            <File>
+              <FileName>ffunicode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\3rdparty\experimental\fs\fatfs\ff\ffunicode.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>debug</GroupName>
+          <Files>
+            <File>
+              <FileName>debug_backtrace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\debug\debug_backtrace.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug_cpuusage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\debug\debug_cpuusage.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug_infoget.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\debug\debug_infoget.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug_overview.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\debug\debug_overview.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug_panic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\debug\debug_panic.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>vfs</GroupName>
+          <Files>
+            <File>
+              <FileName>vfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\fs\vfs\vfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>vfs_adapt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\fs\vfs\vfs_adapt.c</FilePath>
+            </File>
+            <File>
+              <FileName>vfs_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\fs\vfs\vfs_file.c</FilePath>
+            </File>
+            <File>
+              <FileName>vfs_inode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\fs\vfs\vfs_inode.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>ulog</GroupName>
+          <Files>
+            <File>
+              <FileName>ulog.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\middleware\uagent\ulog\ulog.c</FilePath>
+            </File>
+            <File>
+              <FileName>ulog_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\middleware\uagent\ulog\ulog_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>ulog_utility.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\middleware\uagent\ulog\ulog_utility.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>kv</GroupName>
+          <Files>
+            <File>
+              <FileName>kv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\fs\kv\kv.c</FilePath>
+            </File>
+            <File>
+              <FileName>kv_adapt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\fs\kv\kv_adapt.c</FilePath>
+            </File>
+            <File>
+              <FileName>kv_cli.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\fs\kv\kv_cli.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>lib_rbtree</GroupName>
+          <Files>
+            <File>
+              <FileName>rbtree.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\kernel\lib\rbtree\rbtree.c</FilePath>
             </File>
           </Files>
         </Group>

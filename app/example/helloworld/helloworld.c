@@ -136,14 +136,14 @@ bool queue_test(void)
 }
 #endif
 
-#define CERTIFICATE_RHINO_TEST                    (1)
+#define CERTIFICATE_RHINO_TEST                    (0)
 #if (CERTIFICATE_RHINO_TEST)
 extern void test_certificate(void);
 #endif
 
 int application_start(int argc, char *argv[])
 {
-    int count = 0;
+    int i = 0;
     printf("nano entry here!\r\n");
 
 #if (THR_TEST)
@@ -157,8 +157,7 @@ int application_start(int argc, char *argv[])
     test_certificate();
 #endif
     while(1) {
-        //printf("hello world! count %d \r\n", count++);
-
+        printf("[%s, %d]i = %d\r\n", __func__, __LINE__, i++);
         aos_msleep(1000);
     };
 }

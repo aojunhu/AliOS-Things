@@ -32,7 +32,7 @@
 #ifndef LWIP_ARCH_SYS_ARCH_H
 #define LWIP_ARCH_SYS_ARCH_H
 
-#include <errno.h>
+#include <lwip/errno.h>
 #include "aos/kernel.h"
 
 #define SYS_MBOX_NULL NULL

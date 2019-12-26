@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/fcntl.h>
-
+#include <sys/stat.h>
 #include "fatfs_diskio.h"
 #include "ff.h"
 
