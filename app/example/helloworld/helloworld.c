@@ -141,9 +141,30 @@ bool queue_test(void)
 extern void test_certificate(void);
 #endif
 
+#define AOS_TIMER_TEST                    (1)
+#if (AOS_TIMER_TEST)
+#include "aos/hal/timer.h"
+static void test_timer_cb(void *arg)
+{
+    int *pc = arg;
+    printf("[%s, %d]%d\r\n", __func__, __LINE__, *pc);
+    (*pc) ++;
+    printf("[%s, %d]%d\r\n", __func__, __LINE__, *pc);
+}
+#endif
+
 int application_start(int argc, char *argv[])
 {
     int i = 0;
+#if (AOS_TIMER_TEST)
+    int counter = 0, old_counter;
+    timer_dev_t t;
+    t.port = 0;
+    t.config.period = 3*1000;
+    t.config.reload_mode = TIMER_RELOAD_AUTO;
+    t.config.cb = &test_timer_cb;
+    t.config.arg = &counter;
+#endif
     printf("nano entry here!\r\n");
 
 #if (THR_TEST)
@@ -155,6 +176,11 @@ int application_start(int argc, char *argv[])
     
 #if (CERTIFICATE_RHINO_TEST)
     test_certificate();
+#endif
+
+#if (AOS_TIMER_TEST)
+    hal_timer_init(&t);
+    hal_timer_start(&t);
 #endif
     while(1) {
         printf("[%s, %d]i = %d\r\n", __func__, __LINE__, i++);

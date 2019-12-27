@@ -641,19 +641,24 @@
               <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal.c</FilePath>
             </File>
             <File>
-              <FileName>hal_flash.c</FileName>
+              <FileName>flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_flash.c</FilePath>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\flash.c</FilePath>
             </File>
             <File>
-              <FileName>hal_sd.c</FileName>
+              <FileName>sd.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_sd.c</FilePath>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\sd.c</FilePath>
             </File>
             <File>
-              <FileName>hal_uart.c</FileName>
+              <FileName>timer.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\platform\mcu\ln88xx\hal\hal_uart.c</FilePath>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\hal\uart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -695,6 +700,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\cache.c</FilePath>
             </File>
+            <File>
+              <FileName>hal_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\hal\hal_timer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -724,6 +734,11 @@
               <FileName>ll_syscon.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\ll_syscon.c</FilePath>
+            </File>
+            <File>
+              <FileName>ll_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\platform\mcu\ln88xx\src\driver_ln881x\ll\ll_timer.c</FilePath>
             </File>
           </Files>
         </Group>
